@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS | Shape Your Digital Reality</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Space Grotesk (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Config & Styles -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        lime: {
+                            400: '#a3e635',
+                            500: '#84cc16',
+                        }
+                    },
+                    animation: {
+                        'marquee': 'marquee 20s linear infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Utilities */
+        .stroke-text-black {
+            -webkit-text-stroke: 1px #09090b;
+            color: transparent;
+        }
+        
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a3e635;
+        }
+        
+        body {
+            background-color: #09090b; /* zinc-950 */
+            color: #e4e4e7; /* zinc-200 */
+        }
+    </style>
+</head>
+<body class="selection:bg-lime-400 selection:text-zinc-950 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent py-6 bg-transparent">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-lime-400 rounded-lg flex items-center justify-center rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <span class="font-display font-bold text-zinc-950 text-xl">N</span>
+                </div>
+                <span class="font-display text-2xl font-bold tracking-tighter text-white">NEXUS</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#mission" class="text-sm font-medium text-zinc-400 hover:text-lime-400 transition-colors uppercase tracking-widest">Mission</a>
+                <a href="#features" class="text-sm font-medium text-zinc-400 hover:text-lime-400 transition-colors uppercase tracking-widest">Features</a>
+                <a href="#community" class="text-sm font-medium text-zinc-400 hover:text-lime-400 transition-colors uppercase tracking-widest">Community</a>
+                <a href="#careers" class="text-sm font-medium text-zinc-400 hover:text-lime-400 transition-colors uppercase tracking-widest">Careers</a>
+                
+                <button class="bg-white text-zinc-950 px-6 py-2.5 rounded-full font-bold text-sm hover:bg-lime-400 transition-colors flex items-center gap-2 group">
+                    Join Waitlist <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-btn" class="md:hidden text-white p-2">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-zinc-950 border-b border-zinc-800 p-6 flex-col gap-4 shadow-2xl">
+            <a href="#mission" class="mobile-link text-lg font-medium text-zinc-300 hover:text-lime-400">Mission</a>
+            <a href="#features" class="mobile-link text-lg font-medium text-zinc-300 hover:text-lime-400">Features</a>
+            <a href="#community" class="mobile-link text-lg font-medium text-zinc-300 hover:text-lime-400">Community</a>
+            <a href="#careers" class="mobile-link text-lg font-medium text-zinc-300 hover:text-lime-400">Careers</a>
+            <button class="w-full bg-lime-400 text-zinc-950 py-3 rounded-lg font-bold mt-4">
+                Get Started
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="mission" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <!-- Background Gradients -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-violet-600/20 blur-[120px] rounded-full -z-10"></div>
+        <div class="absolute bottom-0 right-0 w-[800px] h-[600px] bg-lime-500/10 blur-[100px] rounded-full -z-10"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 mb-8 animate-fade-in-up">
+                <span class="w-2 h-2 rounded-full bg-lime-400 animate-pulse"></span>
+                <span class="text-xs md:text-sm font-medium text-zinc-300 tracking-wide">V2.0 IS LIVE — JOIN THE REVOLUTION</span>
+            </div>
+            
+            <h1 class="font-display text-5xl md:text-7xl lg:text-9xl font-black text-white tracking-tighter leading-[0.9] mb-8">
+                SHAPE <span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-400">YOUR</span> <br class="hidden md:block" />
+                DIGITAL REALITY
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-zinc-400 text-lg md:text-xl leading-relaxed mb-12">
+                The all-in-one ecosystem for students to build portfolios, connect with mentors, and launch careers without the corporate noise.
+            </p>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <button class="w-full md:w-auto px-8 py-4 bg-lime-400 hover:bg-lime-500 text-zinc-950 font-bold rounded-full text-lg transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 group">
+                    Start Building <i data-lucide="zap" class="w-5 h-5 fill-current"></i>
+                </button>
+                <button class="w-full md:w-auto px-8 py-4 bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-800 font-bold rounded-full text-lg transition-all flex items-center justify-center gap-2">
+                    View Demo <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Floating Card Left -->
+            <div class="hidden lg:block absolute top-1/4 left-10 p-4 bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 rounded-2xl rotate-[-6deg] hover:rotate-0 transition-transform duration-500 cursor-default shadow-xl">
+                <div class="flex items-center gap-3 mb-2">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"></div>
+                    <div class="text-left">
+                        <div class="text-xs text-zinc-400">Just joined</div>
+                        <div class="text-sm font-bold text-white">Alex M.</div>
+                    </div>
+                </div>
+                <div class="flex gap-1">
+                    <i data-lucide="star" class="w-3 h-3 text-lime-400 fill-lime-400"></i>
+                    <i data-lucide="star" class="w-3 h-3 text-lime-400 fill-lime-400"></i>
+                    <i data-lucide="star" class="w-3 h-3 text-lime-400 fill-lime-400"></i>
+                    <i data-lucide="star" class="w-3 h-3 text-lime-400 fill-lime-400"></i>
+                    <i data-lucide="star" class="w-3 h-3 text-lime-400 fill-lime-400"></i>
+                </div>
+            </div>
+
+            <!-- Floating Card Right -->
+            <div class="hidden lg:block absolute bottom-1/4 right-10 p-4 bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 rounded-2xl rotate-[6deg] hover:rotate-0 transition-transform duration-500 cursor-default shadow-xl">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-zinc-800 rounded-lg">
+                        <i data-lucide="trending-up" class="w-5 h-5 text-lime-400"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-xs text-zinc-400">Weekly Growth</div>
+                        <div class="text-lg font-bold text-white">+127%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="bg-lime-400 py-4 overflow-hidden -rotate-1 relative z-20 border-y-4 border-zinc-950">
+        <div id="marquee-track" class="whitespace-nowrap flex animate-marquee">
+            <!-- Content injected via JS for seamless repetition -->
+        </div>
+    </div>
+
+    <!-- Features Bento Grid -->
+    <section id="features" class="py-24 bg-zinc-950 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h2 class="font-display text-4xl md:text-6xl font-black text-white mb-4 tracking-tighter">
+                        EVERYTHING YOU NEED <br />
+                        <span class="text-zinc-600">NOTHING YOU DON'T.</span>
+                    </h2>
+                </div>
+                <p class="text-zinc-400 max-w-sm text-right md:text-left">
+                    We stripped away the complexity. A curated toolkit designed for the next generation of leaders.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+                <!-- Large Card -->
+                <div class="md:col-span-2 md:row-span-2 bg-zinc-900 rounded-3xl p-8 border border-zinc-800 hover:border-lime-400/50 transition-colors group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-lime-400/20 blur-[80px] rounded-full group-hover:bg-lime-400/30 transition-all"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-zinc-800 rounded-xl flex items-center justify-center mb-6 group-hover:bg-lime-400 group-hover:text-zinc-950 transition-colors">
+                                <i data-lucide="globe" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-display text-3xl font-bold text-white mb-2">Global Network</h3>
+                            <p class="text-zinc-400 max-w-md">Connect with peers from 120+ universities and tech hubs worldwide. Collaboration has no borders.</p>
+                        </div>
+                        <div class="mt-8 bg-zinc-950/50 rounded-2xl p-4 border border-zinc-800">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div class="flex -space-x-3">
+                                    <div class="w-8 h-8 rounded-full bg-zinc-700 border-2 border-zinc-900"></div>
+                                    <div class="w-8 h-8 rounded-full bg-zinc-600 border-2 border-zinc-900"></div>
+                                    <div class="w-8 h-8 rounded-full bg-zinc-500 border-2 border-zinc-900"></div>
+                                    <div class="w-8 h-8 rounded-full bg-zinc-400 border-2 border-zinc-900"></div>
+                                </div>
+                                <span class="text-sm text-zinc-400 font-medium">+420 Online now</span>
+                            </div>
+                            <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
+                                <div class="w-[70%] h-full bg-lime-400"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tall Card -->
+                <div class="bg-zinc-900 rounded-3xl p-8 border border-zinc-800 hover:border-violet-500/50 transition-colors group relative overflow-hidden">
+                    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-zinc-950 to-transparent opacity-50"></div>
+                    <div class="w-12 h-12 bg-zinc-800 rounded-xl flex items-center justify-center mb-6 group-hover:bg-violet-500 group-hover:text-white transition-colors">
+                        <i data-lucide="code" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-2">Portfolio Builder</h3>
+                    <p class="text-zinc-400 text-sm">Drag & drop projects. Impress recruiters instantly.</p>
+                </div>
+
+                <!-- Wide Card -->
+                <div class="bg-zinc-900 rounded-3xl p-8 border border-zinc-800 hover:border-pink-500/50 transition-colors group relative overflow-hidden flex flex-col justify-center">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-zinc-800 rounded-xl flex items-center justify-center group-hover:bg-pink-500 group-hover:text-white transition-colors">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <span class="bg-zinc-800 text-xs font-bold px-3 py-1 rounded-full text-white">NEW</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-2">Mentorship</h3>
+                    <p class="text-zinc-400 text-sm">1-on-1s with industry pros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics -->
+    <section id="community" class="py-20 border-y border-zinc-800 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="flex flex-col items-center">
+                    <span class="font-display text-4xl md:text-5xl font-black text-white tracking-tighter mb-2">12K+</span>
+                    <span class="text-zinc-500 font-medium uppercase tracking-widest text-sm">Active Students</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="font-display text-4xl md:text-5xl font-black text-white tracking-tighter mb-2">850+</span>
+                    <span class="text-zinc-500 font-medium uppercase tracking-widest text-sm">Projects Shipped</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="font-display text-4xl md:text-5xl font-black text-white tracking-tighter mb-2">45</span>
+                    <span class="text-zinc-500 font-medium uppercase tracking-widest text-sm">Partner Companies</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="font-display text-4xl md:text-5xl font-black text-white tracking-tighter mb-2">32</span>
+                    <span class="text-zinc-500 font-medium uppercase tracking-widest text-sm">Countries</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-32 bg-zinc-950 relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="font-display text-5xl md:text-8xl font-black text-white tracking-tighter mb-8">
+                READY TO <br />
+                <span class="text-lime-400">LEVEL UP?</span>
+            </h2>
+            <p class="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto">
+                Join the waitlist today and get early access to premium features. 
+                No credit card required. Pure opportunity.
+            </p>
+            
+            <form class="max-w-md mx-auto flex flex-col md:flex-row gap-4" onsubmit="event.preventDefault(); alert('Welcome to Nexus!');">
+                <input 
+                    type="email" 
+                    placeholder="Enter your university email" 
+                    class="flex-1 bg-zinc-900 border border-zinc-700 text-white px-6 py-4 rounded-full focus:outline-none focus:border-lime-400 transition-colors w-full"
+                    required
+                />
+                <button type="submit" class="bg-lime-400 hover:bg-lime-500 text-zinc-950 font-bold px-8 py-4 rounded-full transition-colors whitespace-nowrap w-full md:w-auto">
+                    Get Access
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="careers" class="bg-zinc-950 pt-20 pb-10 border-t border-zinc-900">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-lime-400 rounded-lg flex items-center justify-center">
+                            <span class="font-display font-bold text-zinc-950 text-xl">N</span>
+                        </div>
+                        <span class="font-display text-2xl font-bold tracking-tighter text-white">NEXUS</span>
+                    </div>
+                    <p class="text-zinc-500 max-w-sm mb-6">
+                        Empowering the next generation of builders, thinkers, and creators. 
+                        The future belongs to those who build it.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-white hover:text-zinc-950 transition-all">
+                            <i data-lucide="twitter" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-white hover:text-zinc-950 transition-all">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-white hover:text-zinc-950 transition-all">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-white hover:text-zinc-950 transition-all">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6">Platform</h4>
+                    <ul class="space-y-4 text-zinc-500">
+                        <li><a href="#" class="hover:text-lime-400 transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-lime-400 transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-lime-400 transition-colors">Mentors</a></li>
+                        <li><a href="#" class="hover:text-lime-400 transition-colors">Showcase</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-4 text-zinc-500">
+                        <li><a href="#" class="hover:text-lime-400 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-lime-400 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-lime-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-lime-400 transition-colors">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-zinc-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-zinc-600 text-sm">© 2026 Nexus Platform Inc. All rights reserved.</p>
+                <div class="flex items-center gap-2 text-zinc-600 text-sm">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    All Systems Operational
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex', 'animate-in', 'slide-in-from-top-5');
+                // Change icon to X
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex', 'animate-in', 'slide-in-from-top-5');
+                // Change icon to Menu
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons(); // Re-render icons after change
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(isMenuOpen) toggleMenu();
+            });
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('bg-zinc-950/80', 'backdrop-blur-md', 'border-zinc-800', 'py-4');
+                navbar.classList.remove('bg-transparent', 'border-transparent', 'py-6');
+            } else {
+                navbar.classList.remove('bg-zinc-950/80', 'backdrop-blur-md', 'border-zinc-800', 'py-4');
+                navbar.classList.add('bg-transparent', 'border-transparent', 'py-6');
+            }
+        });
+
+        // Populate Marquee
+        const marqueeTrack = document.getElementById('marquee-track');
+        const marqueeContent = `
+            <span class="text-2xl font-black text-zinc-950 mx-6 uppercase tracking-tight flex items-center gap-4">
+                LEARN • BUILD • CONNECT • SCALE • <span class="stroke-text-black">NO LIMITS</span> •
+            </span>
+        `;
+        // Repeat content to ensure it fills the screen width + extra for scrolling
+        marqueeTrack.innerHTML = marqueeContent.repeat(12);
+
+    </script>
+</body>
+</html>
